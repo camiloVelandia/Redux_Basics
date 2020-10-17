@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import * as usuariosActions from '../../actions/usuariosActions'
 
 const Usuarios = (props) => {
-  // console.log(props)
+  
 
   useEffect(() => {
     props.traerTodos()
