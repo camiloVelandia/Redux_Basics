@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'system-ui';
 }
 
 .margen{
@@ -23,4 +24,11 @@
 #menu a{
   color:white;
   padding-right: 50px;
+}
+
+.center{
+  text-align: center;
+}
+.rojo{
+  color: red;
 }
