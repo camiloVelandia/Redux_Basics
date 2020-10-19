@@ -21,3 +21,24 @@ export const traerTodos = () => async (dispatch) => {
     });
   }
 };
+
+export const traerPorUsuario = (key) => async (dispatch, getState)=>{
+  
+  try {
+    const{usuarios} = getState().usuariosReducer;
+    const usuario_id = usuarios[key].id
+    const respuesta = await axios.get(
+      `http://jsonplaceholder.typicode.com/posts?userId=${usuario_id}`
+    );
+    dispatch({
+      type: TRAER_TODOS,
+      payload: respuesta.data,
+    });
+  } catch (error) {
+    console.log("ERROR: ", error.message);
+    dispatch({
+      type: ERROR,
+      payload: error.message,
+    });
+  } 
+}

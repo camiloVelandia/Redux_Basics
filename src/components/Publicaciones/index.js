@@ -4,17 +4,20 @@ import * as usuariosActions from "../../actions/usuariosActions";
 import * as publicacionesActions from "../../actions/publicacionesActions";
 
 const {traerTodos: usuariosTraerTodos} = usuariosActions
-const {traerTodos: publicacionesTraerTodos} = publicacionesActions
+const { traerPorUsuario: publicacionesTraerPorUsuario } = publicacionesActions;
 
 
 const Publicaciones = (props) => {
   console.log(props)
   useEffect(() => {
-    if (!props.usuariosReducer.usuarios.length){
-      console.log('dsfs')
-      props.usuariosTraerTodos();
-    
-    }
+   const publicacionesporuser = async ()=>{
+      if (!props.usuariosReducer.usuarios.length) {
+        console.log("dsfs");
+       await props.usuariosTraerTodos();
+      }
+      props.publicacionesTraerPorUsuario(props.match.params.key);
+   }
+   publicacionesporuser()
   }, [])
   return (
     <div>
@@ -30,7 +33,7 @@ const mapStateToProps = ({usuariosReducer, publicacionesReducer}) => {
 
 const mapDispatchToProps = {
   usuariosTraerTodos,
-  publicacionesTraerTodos,
+  publicacionesTraerPorUsuario,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Publicaciones);
