@@ -11,7 +11,9 @@ const Usuarios = (props) => {
   
 
   useEffect(() => {
-    props.traerTodos()
+    if(!props.usuarios.length){
+      props.traerTodos()
+    }
   }, []);
 
   const ponerContenido=()=>{

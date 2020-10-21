@@ -17,7 +17,7 @@ export const traerTodos = ()=> async (dispatch)=>{
    console.log('ERROR: ', error.message )
    dispatch({
      type:ERROR,
-     payload: 'Algo salio mal, intenta mas tarde  :('
+     payload: 'Informacion de usuarios no disponible  :('
 
    })
  }
